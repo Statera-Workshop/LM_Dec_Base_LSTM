@@ -1,0 +1,83 @@
+{
+ "model": "lstm",
+ "repo": "(new) Legacy baseline, PyTorch nn.LSTM",
+ "target_repo": "LM_Dec_Base_LSTM",
+ "category": "Base",
+ "upstream": "torch.nn.LSTM (cuDNN); classic baseline requested 2026-10-22",
+ "unified": [
+  "4 layers, hidden 768, input dim 512, LayerNorm before head"
+ ],
+ "torch": "2.5.1+cu124",
+ "gpu": "NVIDIA GeForce RTX 3070 Ti",
+ "stage": "scaling",
+ "started": "2026-10-26 18:11:46",
+ "smoke": false,
+ "rows": [
+  {
+   "len": 512,
+   "train": {
+    "peak_mb": 144.9,
+    "ms": 74.8,
+    "dtype": "bf16"
+   },
+   "infer": {
+    "peak_mb": 74.8,
+    "ms": 30.4,
+    "dtype": "bf16"
+   }
+  },
+  {
+   "len": 1024,
+   "train": {
+    "peak_mb": 151.9,
+    "ms": 124.5,
+    "dtype": "bf16"
+   },
+   "infer": {
+    "peak_mb": 78.7,
+    "ms": 62.0,
+    "dtype": "bf16"
+   }
+  },
+  {
+   "len": 2048,
+   "train": {
+    "peak_mb": 200.9,
+    "ms": 248.3,
+    "dtype": "bf16"
+   },
+   "infer": {
+    "peak_mb": 86.6,
+    "ms": 122.2,
+    "dtype": "bf16"
+   }
+  },
+  {
+   "len": 4096,
+   "train": {
+    "peak_mb": 291.4,
+    "ms": 493.4,
+    "dtype": "bf16"
+   },
+   "infer": {
+    "peak_mb": 98.7,
+    "ms": 243.6,
+    "dtype": "bf16"
+   }
+  },
+  {
+   "len": 8192,
+   "train": {
+    "peak_mb": 476.7,
+    "ms": 989.5,
+    "dtype": "bf16"
+   },
+   "infer": {
+    "peak_mb": 127.4,
+    "ms": 482.6,
+    "dtype": "bf16"
+   }
+  }
+ ],
+ "seconds": 10.1
+}
