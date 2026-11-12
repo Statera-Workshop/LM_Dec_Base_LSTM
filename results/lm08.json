@@ -1,0 +1,50 @@
+{
+ "model": "lstm",
+ "repo": "(new) Legacy baseline, PyTorch nn.LSTM",
+ "target_repo": "LM_Dec_Base_LSTM",
+ "category": "Base",
+ "upstream": "torch.nn.LSTM (cuDNN); classic baseline requested 2026-10-22",
+ "unified": [
+  "4 layers, hidden 768, input dim 512, LayerNorm before head"
+ ],
+ "torch": "2.5.1+cu124",
+ "gpu": "NVIDIA GeForce RTX 3070 Ti",
+ "stage": "lm08",
+ "started": "2026-11-09 19:42:56",
+ "smoke": false,
+ "steps": 6000,
+ "capped": false,
+ "bf16": true,
+ "final_bits": 3.2704489181007035,
+ "test": {
+  "512": {
+   "bits_full": 3.239550902007656
+  },
+  "2048": {
+   "bits_full": 3.2149153761718012,
+   "bits_last512": 3.2162341821342797,
+   "gain_from_history": 0.0013188059624784643
+  },
+  "8192": {
+   "bits_full": 3.2361265554463263,
+   "bits_last512": 3.2371976633959,
+   "gain_from_history": 0.0010711079495737685
+  }
+ },
+ "config": {
+  "train_len": 512,
+  "test_lens": [
+   512,
+   2048,
+   8192
+  ],
+  "batch": 16,
+  "steps": 6000,
+  "eval_every": 1000,
+  "eval_samples": 64,
+  "tail": 256,
+  "max_hours": 1.5
+ },
+ "minutes": 9.2,
+ "seconds": 552.3
+}
